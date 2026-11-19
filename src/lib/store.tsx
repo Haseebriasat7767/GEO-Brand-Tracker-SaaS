@@ -9,6 +9,7 @@ interface StoreCtx {
   state: AppState
   login: (email: string, password: string, name?: string) => Promise<void>
   signup: (email: string, password: string, name: string) => Promise<void>
+  enterDemo: () => Promise<void>
   logout: () => void
   addBrand: (b: Omit<Brand, 'id' | 'user_id' | 'created_at'>) => Promise<void>
   deleteBrand: (id: string) => Promise<void>
@@ -107,6 +108,12 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     await login(email, password, name)
   }
 
+  const enterDemo = async () => {
+    const u: User = { id: 'demo-demo-geo-app', email: 'demo@geo.app', name: 'Demo User' }
+    setUser(u)
+    setState(loadState(u.id))
+  }
+
   const logout = async () => {
     if (supabase) await supabase.auth.signOut()
     setUser(null)
@@ -194,7 +201,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     user,
     mode: isSupabaseConfigured ? 'supabase' : 'demo',
     state,
-    login, signup, logout,
+    login, signup, enterDemo, logout,
     addBrand, deleteBrand, addCompetitor, deleteCompetitor, addPrompt, deletePrompt, runChecks, resetDemo,
   }), [user, state])
 

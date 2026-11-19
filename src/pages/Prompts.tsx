@@ -32,9 +32,9 @@ export default function Prompts() {
 
   return (
     <div className="space-y-5">
-      <div><h1 className="text-2xl font-extrabold tracking-tight">Prompts</h1><p className="text-sm text-slate-500">Questions your customers ask AI engines.</p></div>
+      <div><h1 className="text-2xl font-extrabold tracking-tight">Questions</h1><p className="text-sm text-slate-500">The questions your customers ask AI — like “best payment app for freelancers”.</p></div>
       {state.brands.length === 0 ? (
-        <EmptyState title="Add a brand first" sub="Prompts belong to a brand. Create a brand to continue." />
+        <EmptyState title="Add a brand first" sub="Questions belong to a brand. Create a brand to continue." />
       ) : (
         <>
           <form onSubmit={submit} className="card grid gap-4 p-5 md:grid-cols-[1fr_2fr_1fr_auto]">

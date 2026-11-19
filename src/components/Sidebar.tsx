@@ -4,11 +4,11 @@ import { useStore } from '../lib/store'
 export type Page = 'dashboard' | 'brands' | 'prompts' | 'competitors' | 'checks' | 'reports' | 'settings'
 
 const NAV: { id: Page; label: string; icon: typeof LayoutDashboard }[] = [
-  { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { id: 'brands', label: 'Brands', icon: Building2 },
-  { id: 'prompts', label: 'Prompts', icon: MessageSquareText },
+  { id: 'dashboard', label: 'Home', icon: LayoutDashboard },
+  { id: 'brands', label: 'My Brands', icon: Building2 },
+  { id: 'prompts', label: 'Questions', icon: MessageSquareText },
   { id: 'competitors', label: 'Competitors', icon: Swords },
-  { id: 'checks', label: 'AI Checks', icon: Radar },
+  { id: 'checks', label: 'Run AI Checks', icon: Radar },
   { id: 'reports', label: 'Reports', icon: FileText },
   { id: 'settings', label: 'Settings', icon: Settings },
 ]
